@@ -22,6 +22,7 @@ pub const ACTION_LIST_WITH_META: &str = "lwm";
 pub const ACTION_CREATE_HUBID: &str = "chid";
 pub const ACTION_DOWNLOAD: &str = "dl";
 pub const ACTION_PUBLISH: &str = "pbl";
+pub const ACTION_BPKG_AUTH_GET: &str = "bpkg-get";
 
 pub const INFINYON_HUB_REMOTE: &str = "INFINYON_HUB_REMOTE";
 pub const FLUVIO_HUB_PROFILE_ENV: &str = "FLUVIO_HUB_PROFILE";
@@ -106,6 +107,10 @@ impl HubAccess {
 
     pub async fn get_publish_token(&self) -> Result<String> {
         self.get_action_auth(ACTION_PUBLISH).await
+    }
+
+    pub async fn get_bpkg_get_token(&self) -> Result<String> {
+        self.get_action_auth(ACTION_BPKG_AUTH_GET).await
     }
 
     pub async fn get_action_auth_with_token(
